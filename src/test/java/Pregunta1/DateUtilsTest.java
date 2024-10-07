@@ -1,6 +1,5 @@
 package Pregunta1;
 
-import static org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import Pregunta1.DateUtils;
@@ -9,18 +8,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DateUtilsTest {
 
+    @Test
     public void testValidDateLeapYear(){
         DateUtils dateUtils = new DateUtils();
         String result = dateUtils.getDayOfWeek("2024-02-29");
         assertEquals("SATURDAY", result);
     }
-
+    @Test
     public void testValidDateNonLeapYear(){
         DateUtils dateUtils = new DateUtils();
         String result = dateUtils.getDayOfWeek("2024-05-27");
         assertEquals("MONDAY", result);
     }
-
+    @Test
     public void testInvalidDateFormat(){
         DateUtils dateUtils = new DateUtils();
         Exception exception = assertThrows(IllegalArgumentException.class, () ->{
@@ -28,7 +28,7 @@ public class DateUtilsTest {
         });
         assertEquals("Invalid Date Format. Expect: YYYY-MM-dd", exception.getMessage());
     }
-
+    @Test
     public void testInvalidDayInMonth(){
         DateUtils dateUtils = new DateUtils();
         Exception exception = assertThrows(IllegalArgumentException.class, () ->{
@@ -36,7 +36,7 @@ public class DateUtilsTest {
         });
         assertEquals("Invalid Date Format. Expect: YYYY-MM-dd", exception.getMessage());
     }
-
+    @Test
     public void testInvalidMonth(){
         DateUtils dateUtils = new DateUtils();
         Exception exception = assertThrows(IllegalArgumentException.class, () ->{
@@ -44,7 +44,7 @@ public class DateUtilsTest {
         });
         assertEquals("Invalid Date Format. Expect: YYYY-MM-dd", exception.getMessage());
     }
-
+    @Test
     public void testInvalidYear(){
         DateUtils dateUtils = new DateUtils();
         Exception exception = assertThrows(IllegalArgumentException.class, () ->{
@@ -52,7 +52,7 @@ public class DateUtilsTest {
         });
         assertEquals("Invalid Date Format. Expect: YYYY-MM-dd", exception.getMessage());
     }
-
+    @Test
     public void testFebruary(){
         DateUtils dateUtils = new DateUtils();
         Exception exception = assertThrows(IllegalArgumentException.class, () ->{
@@ -60,13 +60,13 @@ public class DateUtilsTest {
         });
         assertEquals("Invalid Date Format. Expect: YYYY-MM-dd", exception.getMessage());
     }
-
+    @Test
     public void testDateWeekend(){
         DateUtils dateUtils = new DateUtils();
         String result = dateUtils.getDayOfWeek("2024-10-13");
         assertEquals("SUNDAY", result);
     }
-
+    @Test
     public void testDateOfWeek(){
         DateUtils dateUtils = new DateUtils();
         String result = dateUtils.getDayOfWeek("2024-01-01");
