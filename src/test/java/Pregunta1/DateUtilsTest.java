@@ -53,7 +53,25 @@ public class DateUtilsTest {
         assertEquals("Invalid Date Format. Expect: YYYY-MM-dd", exception.getMessage());
     }
 
-    public void testFebruary(){}
+    public void testFebruary(){
+        DateUtils dateUtils = new DateUtils();
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->{
+            dateUtils.getDayOfWeek("2023-03-29");
+        });
+        assertEquals("Invalid Date Format. Expect: YYYY-MM-dd", exception.getMessage());
+    }
+
+    public void testDateWeekend(){
+        DateUtils dateUtils = new DateUtils();
+        String result = dateUtils.getDayOfWeek("2024-10-13");
+        assertEquals("SUNDAY", result);
+    }
+
+    public void testDateOfWeek(){
+        DateUtils dateUtils = new DateUtils();
+        String result = dateUtils.getDayOfWeek("2024-01-01");
+        assertEquals("INVALID", result);
+    }
 
 
 }
