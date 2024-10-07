@@ -1,8 +1,6 @@
 package Pregunta1;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import Pregunta1.DateUtils;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -72,6 +70,4 @@ public class DateUtilsTest {
         String result = dateUtils.getDayOfWeek("2024-01-01");
         assertEquals("INVALID", result);
     }
-
-
 }
